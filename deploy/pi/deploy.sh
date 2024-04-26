@@ -10,7 +10,7 @@ start_app() {
 
   docker rm $container_name > /dev/null
 
-  container_id=`docker run -p 3000:3000 -d --name $container_name -t $container_name`
+  container_id=`docker run -p 3030:3030 -d --name $container_name -t $container_name`
   
   echo "$log_prefix started with container id $container_id"
 }
