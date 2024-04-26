@@ -41,7 +41,7 @@ NEW_HEAD=$(git rev-parse HEAD)
 
 echo "$log_prefix there are unbuilt changes, starting build now."
 
-docker build -t $container_name ../../.
+docker build -t $container_name ../.
 
 start_app
 
