@@ -36,7 +36,7 @@ if [ "$OLD_HEAD" = "$NEW_HEAD" ]; then
 
   # start_app
 
-  exit 0
+  # exit 0
 fi
 
 echo "$log_prefix there are unbuilt changes, starting build now."
