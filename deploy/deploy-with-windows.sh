@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ssh pi "cd /home/jacobg/Programming/nutrition/my-nutrition-ui && ./deploy/pi/deploy.sh"
+ssh pi "cd /home/jacobg/Programming/nutrition/nutrition-ui && ./deploy/pi/deploy.sh"
