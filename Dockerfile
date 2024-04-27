@@ -7,14 +7,14 @@ WORKDIR /app
 # Copy package.json and package-lock.json (if you use it)
 COPY package*.json ./
 
-# Install development dependencies only
-RUN npm install --only=dev
+# Install production dependencies only
+RUN node --dns-result-order=ipv4first $(which npm) install --only=prod
 
 # Copy the rest of the application files
 COPY . .
 
 # Build the React application
-RUN npm run build
+RUN node --dns-result-order=ipv4first $(which npm) run build
 
 # Stage 2: Serve the built application with Nginx
 FROM nginx:alpine
