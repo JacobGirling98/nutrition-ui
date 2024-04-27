@@ -13,8 +13,6 @@ RUN node --dns-result-order=ipv4first $(which npm) install --omit=dev
 # Copy the rest of the application files
 COPY . .
 
-RUN node --dns-result-order=ipv4first $(which npm) install typescript
-
 # Build the React application
 RUN node --dns-result-order=ipv4first $(which npm) run build
 
