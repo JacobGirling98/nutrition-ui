@@ -26,7 +26,7 @@ WORKDIR /usr/share/nginx/html
 COPY --from=builder /app/build .
 
 # Expose port 80
-EXPOSE 80
+EXPOSE 3030
 
 # Configure Nginx default server block (adjust as needed)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
