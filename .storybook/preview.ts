@@ -1,7 +1,9 @@
 import type { Preview } from "@storybook/react"
-import '../src/index.css'; // replace with the name of your tailwind css file
-
 import { withThemeByClassName } from "@storybook/addon-themes";
+import { initialize, mswLoader } from 'msw-storybook-addon'
+
+// Initialize MSW
+initialize()
 
 const preview: Preview = {
   parameters: {
@@ -20,7 +22,9 @@ const preview: Preview = {
       dark: 'dark',
     },
     defaultTheme: 'light',
-  })]
+  })],
+
+  loaders: [mswLoader]
 }
 
 export default preview
