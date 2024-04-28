@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react"
 import { withThemeByClassName } from "@storybook/addon-themes";
 import { initialize, mswLoader } from 'msw-storybook-addon'
+import "../src/index.css"
 
 // Initialize MSW
 initialize()
