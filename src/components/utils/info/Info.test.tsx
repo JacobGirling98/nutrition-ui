@@ -11,7 +11,5 @@ test("Can open and close info with buttons", async () => {
 
   await user.click(screen.getByRole("button", { name: /i/i }))
 
-  await expect(
-    screen.getByText(`App deployed at: ${mockDate}`)
-  ).toBeInTheDocument()
+  expect(screen.getByText(`App deployed at ${mockDate}`)).toBeInTheDocument()
 })
