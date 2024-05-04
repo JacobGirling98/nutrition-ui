@@ -6,9 +6,12 @@ import Info from "./Info"
 test("Can open and close info with buttons", async () => {
   const user = userEvent.setup()
 
-  render(<Info />)
+  const mockDate = "2024-04-28"
+  render(<Info date={mockDate} />)
 
   await user.click(screen.getByRole("button", { name: /i/i }))
 
-  expect(screen.getByText("My content")).toBeInTheDocument()
+  await expect(
+    screen.getByText(`App deployed at: ${mockDate}`)
+  ).toBeInTheDocument()
 })
