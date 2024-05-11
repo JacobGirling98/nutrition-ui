@@ -3,12 +3,12 @@ import Info from "../../utils/info/Info"
 const Header = () => {
   return (
     <>
-      <div className="flex justify-center items-center h-16 bg-gray-800 text-white">
-        <h1 className="text-2xl font-bold">My Nutrition</h1>
-        <div className="ml-auto">
-          <Info date="2024-04-04" />
-        </div>
-      </div>
+      <nav className="flex justify-between items-center">
+        <h1 className="text-center flex-auto text-2xl font-black">
+          My Nutrition
+        </h1>
+        <Info date="2024-02-02" />
+      </nav>
     </>
   )
 }
