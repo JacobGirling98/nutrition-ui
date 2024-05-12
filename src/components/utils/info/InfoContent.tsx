@@ -6,14 +6,16 @@ interface InfoContentProps {
 const InfoContent = ({ date, close }: InfoContentProps) => {
   return (
     <>
-      <div className="bg-gray-200 dark:bg-gray-700 text-neutral-950 dark:text-neutral-300 rounded-lg w-40">
+      <div className="bg-gray-200 dark:bg-gray-700 text-neutral-950 dark:text-neutral-300 rounded-lg w-40 flex">
+        <p className="p-2 text-xs font-extralight flex-grow">
+          App deployed at {date}
+        </p>
         <button
-          className="absolute top-0 right-0 ext-neutral-950 dark:text-neutral-300 py-1 px-2 text-xs"
+          className="text-neutral-950 dark:text-neutral-300 py-1 px-2 text-xs"
           onClick={close}
         >
           x
         </button>
-        <p className="p-2 text-sm">App deployed at {date}</p>
       </div>
     </>
   )
