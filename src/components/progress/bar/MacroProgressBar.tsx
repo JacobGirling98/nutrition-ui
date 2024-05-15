@@ -32,13 +32,13 @@ const MacroProgressBar = ({
   return (
     <>
       <div className="flex-col text-center">
-        <p className="mb-1 font-light text-gray-500 dark:text-gray-300">
+        <p className="mb-2 font-light text-gray-500 dark:text-gray-300 text-xs">
           {macro}
         </p>
         <Flowbite theme={{ theme }}>
-          <Progress progress={percentage} color={colour} />
+          <Progress progress={percentage} color={colour} size="sm" />
         </Flowbite>
-        <p className="mt-1 font-extralight text-sm text-gray-500 dark:text-gray-300">
+        <p className="mt-1 font-extralight text-xs text-gray-500 dark:text-gray-300">
           {progress} / {total}g
         </p>
       </div>
