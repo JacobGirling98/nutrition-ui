@@ -1,6 +1,22 @@
 import MacroProgressBar from "../progress/bar/MacroProgressBar"
 
-const MacroHeadlines = () => {
+interface MacroHeadlinesProps {
+  carbsProgress: number
+  carbsTotal: number
+  proteinProgress: number
+  proteinTotal: number
+  fatProgress: number
+  fatTotal: number
+}
+
+const MacroHeadlines = ({
+  carbsProgress,
+  carbsTotal,
+  proteinProgress,
+  proteinTotal,
+  fatProgress,
+  fatTotal
+}: MacroHeadlinesProps) => {
   return (
     <>
       <div className="rounded-lg shadow-md py-4 px-6 flex flex-row space-x-4">
@@ -8,24 +24,24 @@ const MacroHeadlines = () => {
           <MacroProgressBar
             macro="Carbs"
             colour="green"
-            total={100}
-            progress={50}
+            total={carbsTotal}
+            progress={carbsProgress}
           />
         </div>
         <div className="flex-auto">
           <MacroProgressBar
             macro="Protein"
             colour="blue"
-            total={100}
-            progress={50}
+            total={proteinTotal}
+            progress={proteinProgress}
           />
         </div>
         <div className="flex-auto">
           <MacroProgressBar
             macro="Fat"
             colour="red"
-            total={100}
-            progress={50}
+            total={fatTotal}
+            progress={fatProgress}
           />
         </div>
       </div>
