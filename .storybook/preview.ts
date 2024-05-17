@@ -1,12 +1,12 @@
+import type { Preview } from "@storybook/react"
 import { withThemeByClassName } from "@storybook/addon-themes"
 import { initialize, mswLoader } from "msw-storybook-addon"
 import "../src/index.css"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 // Initialize MSW
 initialize()
 
-const preview = {
+const preview: Preview = {
   parameters: {
     controls: {
       matchers: {
@@ -24,12 +24,7 @@ const preview = {
         dark: "dark"
       },
       defaultTheme: "light"
-    }),
-    (story) => (
-      <QueryClientProvider queryClient={new QueryClient()}>
-        {story()}
-      </QueryClientProvider>
-    )
+    })
   ],
 
   loaders: [mswLoader]
