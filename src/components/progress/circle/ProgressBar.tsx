@@ -1,18 +1,15 @@
-import React from "react"
+import React, { PropsWithChildren } from "react"
 
 interface ProgressCircleProps {
-  percentage: number // Progress percentage (0-100)
-  strokeWidth?: number // Optional stroke width (default: 4)
-  backgroundColor?: string // Optional background color (default: 'gray')
-  progressColor?: string // Optional progress color (default: 'currentColor')
+  percentage: number
+  strokeWidth?: number
 }
 
-const ProgressCircle: React.FC<ProgressCircleProps> = ({
+const ProgressCircle = ({
   percentage,
   strokeWidth = 4,
-  backgroundColor = "gray",
-  progressColor = "currentColor"
-}) => {
+  children
+}: PropsWithChildren<ProgressCircleProps>) => {
   const containerRef = React.useRef<HTMLDivElement>(null)
   const containerSize = containerRef.current?.clientWidth || 100
 
@@ -20,8 +17,7 @@ const ProgressCircle: React.FC<ProgressCircleProps> = ({
   const radius = size / 2 - strokeWidth / 2
   const circumference = 2 * Math.PI * radius
 
-  // Calculate dash offset with adjustment for starting at top and filling clockwise
-  const dashOffset = circumference * (1 - percentage / 100) // Reversed for clockwise
+  const dashOffset = circumference * (1 - percentage / 100)
 
   return (
     <div ref={containerRef} className="relative w-full h-full">
@@ -35,7 +31,7 @@ const ProgressCircle: React.FC<ProgressCircleProps> = ({
           cy={size / 2}
           r={radius}
           fill="transparent"
-          stroke={backgroundColor}
+          stroke={"#d1d5db"}
           strokeWidth={strokeWidth}
         />
         <circle
@@ -47,16 +43,13 @@ const ProgressCircle: React.FC<ProgressCircleProps> = ({
           strokeDasharray={circumference}
           strokeDashoffset={dashOffset}
           strokeWidth={strokeWidth}
-          strokeLinecap="round" // Optional: round stroke ends for better visuals
-          stroke={progressColor}
-          transform={`rotate(-90 ${size / 2} ${size / 2})`} // Rotate to start at top
+          strokeLinecap="round"
+          stroke={"#f3f4f6"}
+          transform={`rotate(-90 ${size / 2} ${size / 2})`}
         />
       </svg>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-        <div className="flex flex-col">
-          <span>2300</span>
-          <span>kcal left</span>
-        </div>
+        {children && children}
       </div>
     </div>
   )
